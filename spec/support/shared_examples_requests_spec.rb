@@ -10,6 +10,10 @@ RSpec.shared_examples "a sniffered" do |fldr|
 
   it 'stores GET request correctly', enabled: true do
     get_request
+    Thread.new {
+      get_request
+      Sniffer.clear!
+    }.tap(&:join)
     expect(data_first_item.to_h).to match_yaml_file("#{fldr}/get_response")
   end
 

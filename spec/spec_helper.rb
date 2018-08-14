@@ -26,6 +26,8 @@ when_enabled = { enabled: ->(v) { v } }
   FakeWeb::App.run!
 end
 
+sleep(1)
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"

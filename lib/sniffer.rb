@@ -44,7 +44,7 @@ module Sniffer
     end
 
     def data
-      @data ||= Sniffer::Data.new
+      Thread.current[:sniffer_data] ||= Sniffer::Data.new
     end
 
     def store(data_item)
